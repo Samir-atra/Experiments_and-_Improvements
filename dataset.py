@@ -25,7 +25,7 @@ def train_dataset(data_path):
             image /= 255 
             if len(image.shape) < 3:
                 continue
-            elif dir1 =="cars":
+            elif dir1 =="Cars":
                 img_data_array.append(image)
                 cars.append(image)
                 class_name.append(dir1)
@@ -35,13 +35,13 @@ def train_dataset(data_path):
                 mris.append(image)
                 class_name.append(dir1)
                 mris_class.append(dir1)
-            elif dir1 =="shoe":
+            elif dir1 =="Shoe":
                 img_data_array.append(image)
                 shoe.append(image)
                 class_name.append(dir1)
                 shoe_class.append(dir1)
 
-    img_data_array = np.stack(image_data_array, axis=0)
+    img_data_array = np.stack(img_data_array, axis=0)
     cars = np.stack(cars, axis=0)
     mris = np.stack(mris, axis=0)
     shoe = np.stack(shoe, axis=0)
@@ -76,7 +76,7 @@ def test_dataset(testdata_path):
             image /= 255 
             if len(image.shape) < 3:
                 continue
-            elif dir1 =="cars":
+            elif dir1 =="Cars":
                 img_data_array.append(image)
                 cars.append(image)
                 class_name.append(dir1)
@@ -86,13 +86,13 @@ def test_dataset(testdata_path):
                 mris.append(image)
                 class_name.append(dir1)
                 mris_class.append(dir1)
-            elif dir1 =="shoe":
+            elif dir1 =="Shoe":
                 img_data_array.append(image)
                 shoe.append(image)
                 class_name.append(dir1)
                 shoe_class.append(dir1)
 
-    img_data_array = np.stack(image_data_array, axis=0)
+    img_data_array = np.stack(img_data_array, axis=0)
     cars = np.stack(cars, axis=0)
     mris = np.stack(mris, axis=0)
     shoe = np.stack(shoe, axis=0)
@@ -105,9 +105,6 @@ def test_dataset(testdata_path):
 
     return img_data_array, class_name, cars, car_class, mris, mris_class, shoe, shoe_class
                
-
-
-
 
 
 
