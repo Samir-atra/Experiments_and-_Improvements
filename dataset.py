@@ -19,8 +19,8 @@ def train_dataset(data_path):
    
     for dir1 in os.listdir(data_path):
         for file in os.listdir(os.path.join(data_path, dir1)):
-            image_path= os.path.join(data_path, dir1,  file)
-            image= cv2.imread( image_path, cv2.COLOR_BGR2RGB)
+            image_path= os.path.join(data_path, dir1, file)
+            image= cv2.imread(image_path, cv2.COLOR_BGR2RGB)
             image=cv2.resize(image, (100, 100))
             image=np.array(image)
             image = image.astype('float32')
@@ -70,8 +70,8 @@ def test_dataset(testdata_path):
 
     for dir1 in os.listdir(testdata_path):
         for file in os.listdir(os.path.join(testdata_path, dir1)):
-            image_path= os.path.join(testdata_path, dir1,  file)
-            image= cv2.imread( image_path, cv2.COLOR_BGR2RGB)
+            image_path= os.path.join(testdata_path, dir1, file)
+            image= cv2.imread(image_path, cv2.COLOR_BGR2RGB)
             image=cv2.resize(image, (100, 100))
             image=np.array(image)
             image = image.astype('float32')
