@@ -12,8 +12,8 @@ datasets:
 
 
 
-working to implement this paper:    http://people.tamu.edu/~sji/classes/LR.pdf      and looks
-like it's not thorough and good enough
+working to implement this introduction:    http://people.tamu.edu/~sji/classes/LR.pdf      and looks
+like it's not thorough and good enough.
 
 to be continued after getting better understanding to optimization techniques
 
