@@ -7,18 +7,18 @@ import glob
 import os
 import xml.etree.ElementTree as ET
 import sys
-
+import fnmatch
 
 class setup():
 
-    def __init__(self, datapath):             
+    def __init__(self, datapath):
         self.datapath = datapath
+        self.first_counter = int()
 
     @property
     def renamer(self):
         ### to rename the annotations and images ### 
         directory = os.chdir(f"{self.datapath}")
-        # dic = os.chdir(f"{self.datapath}images/")
         inames = []
         anames = []
         counter = 0
@@ -38,42 +38,50 @@ class setup():
                     os.rename(f"{self.datapath}"+image_name+".jpg", f"{self.datapath}"+str(counter)+".jpg")
                     os.rename(f"{self.datapath}"+image_name+".xml", f"{self.datapath}"+str(counter)+".xml")
 
+    def directory_creator(self):
+        directory = rf"{self.datapath}"
+        destinations = ["train/images/", "train/annotations/", "validation/images/", "validation/annotations/"]
+        for element in destinations:
+            path = os.path.join(directory, element)
+            os.makedirs(path)
+
+
     @property
     def first_splitter(self):
         ### to split training and validation ###
         directory = rf"{self.datapath}"
         dir = f"{directory}train/"
         dic = f"{directory}validation/"
-        counter = 0
-        for fily in os.listdir(directory):
-            if counter <= 998:
-                counter += 1
-                print(counter)
-                x = glob.glob(rf'{self.datapath}{counter}.jpg')[0]
+        length = len(fnmatch.filter(os.listdir(directory), '*.jpg'))
+        for fily in range (1, length + 1):
+            if fily <= int(self.first_counter):
+                print(fily)
+                x = glob.glob(rf'{self.datapath}{fily}.jpg')[0]
                 shutil.move(x, dir)
-                y = glob.glob(rf'{self.datapath}{counter}.xml')[0]
+                y = glob.glob(rf'{self.datapath}{fily}.xml')[0]
                 shutil.move(y, dir)
                 continue
-            else:
-                counter += 1
-                print(counter)
-                x = glob.glob(rf'{self.datapath}{counter}.jpg')[0]
+            elif fily > int(self.first_counter):
+                print(fily)
+                x = glob.glob(rf'{self.datapath}{fily}.jpg')[0]
                 shutil.move(x, dic)
-                y = glob.glob(rf'{self.datapath}{counter}.xml')[0]
+                y = glob.glob(rf'{self.datapath}{fily}.xml')[0]
                 shutil.move(y, dic)
                 continue
+
+    @first_splitter.setter
+    def first_splitter(self, first_counter):
+        self.first_counter = first_counter
+
 
     @property
     def second_splitter(self):
         ### to split annotations from images ###
         destinations = ["train/images/", "train/annotations/", "validation/images/", "validation/annotations/"]
         files = ["train/*.jpg", "train/*.xml", "validation/*.jpg", "validation/*.xml"]
-        counter = 0
         for num in range(len(destinations)):
             dest_dir = f"{self.datapath}{destinations[num]}"
-            counter += 1
             for file in glob.glob(rf'{self.datapath}{files[num]}'):
-                print(counter)
                 shutil.move(file,dest_dir)
 
 
@@ -99,13 +107,13 @@ try:
     sety = setup(sys.argv[1])
 except IndexError:
     sys.exit("InputError:example usage: python DatasetSetup.py /data/set/directory/path/")
-
-fun = input("input function, one of (renamer, first_splitter, second_splitter): ")
+fun = input("Input function, one of (renamer, first_splitter, second_splitter): ")
+if fun == "first_splitter" or fun == "second_splitter":
+    try:
+        sety.directory_creator()
+    except FileExistsError:
+        pass
+if fun == "first_splitter":
+    sety.first_counter = input("Type the number of training images: ")
 getattr(sety, fun)
-# sety.renamer()
-# sety.first_splitter()
-# sety.second_splitter()
-
-
-
 
