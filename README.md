@@ -7,7 +7,7 @@ This repository contains two directories:
 
 and the other network was optimized to generate images of tree leaves and it did show beginner results, without further improvements.
 
--JAX: the directory contains some programs built using the JAX library, to learn how to use the libary and debug the error relevant to using it.
+- JAX: the directory contains some programs built using the JAX library, to learn how to use the library and debug the error relevant to using it.
 
-and that is because the libary has a superior speed and performance to to NumPy but it has similar functions and classes. 
+and that is because the library has a superior speed and performance to NumPy but it has similar functions and classes. 
 and building these programs came after studying a course about the library on LinkedIn learning.
