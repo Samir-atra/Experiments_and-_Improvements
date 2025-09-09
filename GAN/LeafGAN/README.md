@@ -8,7 +8,7 @@ The model is a DCGAN implemented using TensorFlow and Keras. The `CitrusGAN.ipyn
 
 ## Dataset
 
-The model is trained on a dataset of citrus leaf images, which is expected to be located in a Google Drive folder. The notebook is configured to load the dataset from `/content/drive/MyDrive/LeafDataset/Leaves/Leafdataset/Training/Leaf/`.
+The model is trained on a dataset of citrus leaf images, which is expected to be located in a Google Drive folder. The notebook is configured to load the dataset from `/content/drive/MyDrive/LeafDataset/Leaves/Leafdataset/Training/Leaf/`. And can be downloaded from [Citrus leaves dataset](https://www.kaggle.com/datasets/sourabh2001/citrus-leaves-dataset)
 
 ## Results
 

@@ -8,7 +8,7 @@ The model is based on the architecture described in the paper: [Unsupervised Rep
 
 ## Dataset
 
-The model is trained on a dataset of car images, which is expected to be located in a Google Drive folder. The notebook is configured to mount a Google Drive and load the dataset from `/content/drive/MyDrive/CarsDataset/`.
+The model is trained on a dataset of car images, which is expected to be located in a Google Drive folder. The notebook is configured to mount a Google Drive and load the dataset from `/content/drive/MyDrive/CarsDataset/`. and can be downloaded from [Stanford cars dataset](https://www.kaggle.com/datasets/eduardo4jesus/stanford-cars-dataset)
 
 ## Implementation
 
