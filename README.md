@@ -12,14 +12,14 @@ This directory contains two Generative Adversarial Network (GAN) projects. Both 
 
 *   **Objective**: To generate images of cars.
 *   **Model**: This project is based on the DCGAN (Deep Convolutional Generative Adversarial Network) architecture, as described in the paper: [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/pdf/1511.06434.pdf).
-*   **Dataset**: The model is trained on a dataset of car images, which is loaded from Google Drive.
+*   **Dataset**: The model is trained on a dataset of car images, which is loaded from Google Drive, and can be found at [Stanford cars dataset](https://www.kaggle.com/datasets/eduardo4jesus/stanford-cars-dataset)
 *   **Implementation**: The implementation can be found in `GAN/CarGAN/CarGAN.ipynb`. It includes the generator and discriminator models, the training loop, and functions for saving checkpoints and generating images.
 
 ### LeafGAN (CitrusGAN)
 
 *   **Objective**: To generate images of tree leaves. This was an experiment to work with a simpler and smaller dataset compared to the CarGAN project.
 *   **Model**: This is also a DCGAN implementation.
-*   **Dataset**: The dataset consists of citrus leaf images, loaded from Google Drive.
+*   **Dataset**: The dataset consists of citrus leaf images, loaded from Google Drive. and can be downloaded from [Citrus leaves dataset](https://www.kaggle.com/datasets/sourabh2001/citrus-leaves-dataset)
 *   **Results**: The project showed some initial success, with "Leafish" shapes being generated after about 80 epochs. Further improvements and more training would be needed to generate more realistic images. The notebook `GAN/LeafGAN/CitrusGAN.ipynb` contains a log of various experiments with the model's architecture and hyperparameters.
 
 ## JAX
